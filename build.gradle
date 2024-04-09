@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion libraryCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion libraryMinSdk
+        targetSdkVersion libraryTargetSdk
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api "androidx.appcompat:appcompat:$appCompat"
+    api "com.google.android.material:material:$material"
+    implementation "com.github.samanzamani:PersianDate:$persianDate"
+
+}
